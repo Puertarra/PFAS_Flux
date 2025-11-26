@@ -1,0 +1,15 @@
+{
+    "parameters": {
+        "methane_concentration": 205984,
+        "pfas_concentration": 19,
+        "methane_bg_concentration": 1.9,
+        "ch4_flux_rate": 70,
+        "landfill_area": 503131
+    },
+    "results": {
+        "ratio": 9.224017399409663e-05,
+        "pfas_flux": 0.006456812179586765,
+        "pfas_bg_conc_ppm": 0.0001752563305887836,
+        "emissions_rate_micrograms_per_second": 37599.79593434802
+    }
+}
