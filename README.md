@@ -97,7 +97,11 @@ cd PFAS_Flux
 ```
 
 ### 2. Set up the Python environment
-pip install -r requirements.txt
+```bash
+conda env create -f environment.yml
+
+conda activate <env_name>
+```
 
 ### 3. Prepare input data
 
