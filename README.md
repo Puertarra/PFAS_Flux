@@ -1,116 +1,133 @@
-# PFAS Landfill Emissions Analysis (Sites L19 and L26)
+# Landfill PFAS Emissions Modeling and Spatial Analysis
 
-Tools for simulating, analyzing, and mapping landfill methane (CH₄) and PFAS emissions using synthetic receptor grids, Gaussian dispersion, and geospatial hulls.
+Tools for simulating, analyzing, and mapping landfill **PFAS (Per- and Polyfluoroalkyl Substances)** emissions using synthetic receptor grids, Gaussian dispersion modeling, and geospatial convex hulls.
 
 ## Overview
 
-This repository contains a Jupyter-based workflow for a comprehensive analysis of **Per- and Polyfluoroalkyl Substances (PFAS)** emissions from two landfill sites, referred to as **L19** and **L26**, and evaluates the associated environmental and public health risks. The analysis uses atmospheric dispersion modeling to simulate how PFAS compounds spread through the environment under various meteorological conditions.
+This repository contains a Jupyter-based analytical workflow for the assessment of **PFAS emissions** from two landfill sites, **L19** and **L26**. The framework combines atmospheric dispersion modeling, synthetic monitoring networks, and geospatial analysis to evaluate spatial exposure patterns and potential environmental and public-health implications under varying meteorological conditions.
 
-The codebase also includes utilities to generate synthetic receptor measurements, compute fluxes and emission rates, apply quartile-based spatial analysis, convert model coordinates to geographic latitude/longitude, and visualize results on interactive web maps.
+The codebase supports the full pipeline from source definition and dispersion modeling to spatial statistics and interactive geovisualization.
 
 ## Key Components
 
 ### 🎯 Objectives
 
 - Estimate PFAS emission rates from landfill sources.
-- Model atmospheric dispersion patterns using Gaussian plume theory.
-- Assess concentration levels at receptor points within surrounding communities.
-- Evaluate public health risks through spatial and temporal analysis.
-- Generate interactive visualizations and maps for stakeholder communication.
+- Simulate atmospheric dispersion using Gaussian plume theory.
+- Quantify PFAS concentrations at synthetic receptor locations.
+- Analyze spatial and temporal exposure patterns.
+- Produce publication-quality and interactive visualizations for technical and non-technical audiences.
 
 ### 📊 Data Sources
 
-- **Convex hull coordinates** for L19 and L26: Define landfill boundaries and study areas.
-- **Weather data**: Wind speed, direction, and atmospheric stability classes.
-- **Emission parameters**: PFAS and methane concentrations, background levels.
-- **Geographic landmarks**: Schools, hospitals, shopping centers, and other points of interest.
+- **Convex hull geometries** for landfills L19 and L26 defining modeling domains.
+- **Meteorological data**: wind speed, wind direction, and atmospheric stability.
+- **Emission parameters**: PFAS source strengths and background concentrations.
+- **Geographic landmarks**: schools, residential clusters, services, and other receptors of interest.
 
 ## Methodology
 
 ### 🔬 Core Modeling
 
-- **Gaussian Plume Modeling**  
-  Calculates pollutant concentrations using meteorological data and standard dispersion formulations.
+- **Gaussian Plume Dispersion**  
+  Computes PFAS ground-level concentrations using standard atmospheric dispersion formulations and site-specific meteorology.
 
-- **Receptor Grid Generation**  
-  Creates synthetic monitoring points across each study area to approximate a dense sensor network.
+- **Synthetic Receptor Grids**  
+  Generates dense spatial sampling networks to approximate monitoring campaigns within landfill boundaries.
 
-- **Source–Receptor Analysis**  
-  Models emissions from multiple point sources within each landfill and links them to receptor concentrations.
+- **Source–Receptor Linking**  
+  Supports multiple emission sources and evaluates their combined impact at receptor locations.
 
 - **Coordinate Transformations**  
-  Converts between local Cartesian coordinates (x, y in meters) and geographic coordinates (lat, lon) using site-specific centroids and linearized metric–degree factors.
+  Converts between local Cartesian coordinates (meters) and geographic coordinates (latitude/longitude) using landfill-specific centroids and linearized projections.
 
-- **Risk Assessment**  
-  Evaluates exposure levels relative to background concentrations, supporting qualitative and semi-quantitative risk characterization.
+- **Exposure Screening**  
+  Compares modeled concentrations against background levels to support qualitative and semi-quantitative exposure interpretation.
 
 ### 📈 Analysis Features
 
-- Daily concentration mapping under varying weather conditions.
-- Wind-aligned coordinate system for accurate dispersion modeling.
-- Statistical analysis of concentration distributions (quartiles, spatial patterns).
-- Interactive **Folium** maps with overlays for:
-  - Convex hulls of L19 and L26.
-  - Emission sources and receptor points.
-  - Community landmarks and other features of interest.
-- Time-series visualization of atmospheric conditions.
-- Convex hull boundary validation to ensure receptors lie within the modeled domain.
-
-## Geospatial and Hull Utilities
-
-The repository includes tools to:
-
-- Read convex hull coordinates for **L19** and **L26** from spreadsheet files.
-- Export hulls as `numpy` arrays for use in modeling and plotting.
-- Overlay hulls on:
-  - Matplotlib figures (concentration fields, source locations).
-  - Folium web maps for interactive inspection.
-- Compare model-derived hulls with externally defined polygons (e.g., from GIS/KML/GeoJSON sources).
+- Daily concentration fields under varying weather conditions.
+- Wind-aligned reference frames for physically consistent dispersion.
+- Quartile-based spatial statistics and hotspot identification.
+- Maps including landfill hulls, emission sources, receptor grids, and community landmarks.
+- Validation checks ensuring receptors remain within modeled hulls.
 
 ## Visualization Outputs
 
-### 🗺️ Maps and Plots
-
-- Concentration contour maps for different meteorological scenarios.
-- Interactive web maps (Folium) with:
-  - Emission sources.
-  - Receptor grids.
-  - Landfill hulls (L19 and L26).
-  - Community landmarks and distance rings (e.g., 1 km, 2 km, 3 km).
-- Receptor grid layouts showing spatial sampling distribution.
-- Wind roses and basic atmospheric stability diagnostics.
-- Statistical summaries and exposure risk assessments.
+- PFAS concentration heatmaps for multiple meteorological scenarios.
+- Interactive maps showing emission sources, receptor grids, landfill boundaries, and distance buffers.
+- Receptor layout diagnostics and spatial summaries.
+- Tabulated exposure metrics for screening-level assessment.
 
 ## Applications
 
-### 💡 Use Cases
-
 - Environmental impact assessment for landfill operations.
-- Public health risk communication and community engagement.
-- Regulatory compliance and emission monitoring planning.
-- Site management and mitigation strategy development.
-- Scientific research on PFAS fate, transport, and co-emitted methane.
+- Public-health exposure screening and community communication.
+- Regulatory reporting and emission monitoring design.
+- Site management and mitigation planning.
+- Research on PFAS fate and atmospheric transport.
 
-## Repository Structure (Indicative)
-
-- `notebooks/`  
-  Jupyter notebooks implementing the main PFAS and methane analysis for L19 and L26.
+## Repository Structure
 
 - `data/`  
-  Input data files (convex hull tables, weather data, parameter JSON, landmarks).
+  Input datasets (convex hulls, meteorology, parameters, landmarks).
 
 - `src/`  
-  Python modules for:
-  - Gaussian dispersion calculations.
-  - Synthetic receptor grid generation.
-  - Coordinate transformations (`xy_to_latlon`, etc.).
-  - JSON export of parameters and results.
-  - Mapping utilities with Matplotlib and Folium.
+  Python modules **and Jupyter notebooks** implementing dispersion modeling, receptor generation, coordinate transformations, and mapping utilities for L19 and L26.
+
+- `img/`  
+  Generated figures, maps, and visualization outputs.
 
 - `README.md`  
-  Project overview, methodology, and usage notes.
+  Project description, methodology, and usage notes.
 
 ---
 
+## Quick Start
 
-**Note**: This analysis integrates atmospheric science, environmental chemistry, and public health methodologies to provide a comprehensive assessment of PFAS and methane emissions from landfills L19 and L26, and their potential impact on surrounding communities.
+Follow these steps to get up and running with the PFAS Flux analysis workflow.
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Puertarra/PFAS_Flux.git
+cd PFAS_Flux
+```
+
+### 2. Set up the Python environment
+pip install -r requirements.txt
+
+### 3. Prepare input data
+
+Place all required input datasets into the `data/` directory, including:
+
+- Convex hull definitions for landfills **L19** and **L26** (CSV, Excel, or JSON).
+- Meteorological data (wind speed, wind direction, stability class).
+- PFAS emission parameters and background concentrations.
+- Geographic landmarks and auxiliary reference tables.
+
+Ensure that file names, column headers, and coordinate conventions match those expected by the scripts and notebooks located in `src/`.
+
+---
+
+### 4. Run the analyses
+
+All analysis code and Jupyter notebooks are located in the `src/` directory.
+
+To launch a notebook (example for landfill L19):
+
+```bash
+jupyter notebook src/PFAS_L19.ipynb
+```
+Within each notebook, the typical workflow includes:
+
+- Loading and validating input data.
+- Generating synthetic receptor grids inside landfill hulls.
+- Configuring Gaussian dispersion parameters.
+- Running PFAS dispersion simulations.
+- Computing spatial statistics and exposure metrics.
+- Producing static and interactive visualizations.
+
+### 5. View outputs
+
+Static figures (PNG) are saved in the img/ directory.
