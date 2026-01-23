@@ -1,0 +1,16 @@
+{
+    "parameters": {
+        "methane_concentration": 99061639.48316035,
+        "pfas_concentration": 4454.0,
+        "methane_bg_concentration": 1.9,
+        "ch4_flux_rate": 0.42,
+        "landfill_area": 376362,
+        "note": "area from ghgrp database for 2022"
+    },
+    "results": {
+        "ratio": 4.4961904761904765e-05,
+        "pfas_flux": 1.8884e-05,
+        "pfas_bg_conc_ppm": 8.542761904761905e-05,
+        "emissions_rate_micrograms_per_second": 82.25949083333333
+    }
+}
