@@ -1,6 +1,6 @@
 # Landfill PFAS Emissions Modeling and Spatial Analysis
 
-![PFAS attenuation](img/final/aggregated_plot_6x.png)
+![PFAS attenuation](img/final/aggregated_plot_6x_big.png)
 
 Tools for simulating, analyzing, and mapping landfill **PFAS (Per- and Polyfluoroalkyl Substances)** emissions using synthetic receptor grids, Gaussian dispersion modeling, and geospatial convex hulls.
 
